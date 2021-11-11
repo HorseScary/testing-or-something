@@ -20,13 +20,18 @@ The instance of the function that DID return the "You counted to 10!" string was
 """
 
 
+#Im pretty sure this is a correct use of recursion?
 
 def countToOneHundred(a):
-    if a == 10:
-        return("You counted to 100!")
-    
     a += 1
-    print(a)
-    countToOneHundred(a)
-    
+#adds 1 to a before doing anything else!
+    if a != 10:
+        return(countToOneHundred(a))
+#if a is not at the max value (10) the function returns itself
+
+    else:
+        return(f"You counted to 10!\na = {a}")
+#if a is not not equal to 10 than that means it is equal to 10, and the program is done. 
+#this returns the final 
+
 print(countToOneHundred(0))
