@@ -17,6 +17,8 @@ The idea was that instead of using a loop the function would just call itself un
 
 The issue with this code (I think) is that the original function never returned anything.
 The instance of the function that DID return the "You counted to 10!" string was 10 iterations down
+
+after googling recursion im not 100% sure that this is actually recursive
 """
 
 
