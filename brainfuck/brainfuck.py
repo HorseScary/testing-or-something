@@ -26,6 +26,8 @@ def fuck(pro):
             cell[pos] += 1
         elif i == '-':
             cell[pos] -= 1
+        elif i == '[':
+            print('aaaaaaaaaaaaa')
 
         elif i == '.':
             print(cell[pos], end='')
