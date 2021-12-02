@@ -18,4 +18,4 @@ def read(file):
 
     return(data)
 
-print(sonar(read('advent/data.txt')))
+print(sonar(read('advent/day-1/data.txt')))
