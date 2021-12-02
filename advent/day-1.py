@@ -7,6 +7,7 @@ def sonar (data):
         else:
             continue
 
+    return(count)
 
 def read(file):
     data = []
@@ -17,4 +18,4 @@ def read(file):
 
     return(data)
 
-print(read("advent/data.txt"))
+print(sonar(read('advent/data.txt')))
