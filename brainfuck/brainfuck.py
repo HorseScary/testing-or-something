@@ -20,46 +20,46 @@ def fuck(pro):
     i = 0
     while i < len(program):
         #moves pointer forward
-        if program[i]== '>':
+        if program[i] == '>':
             pointer += 1
-            #checks if a cell exists at the pointer location, if not adds a cell with value of 0 
+            #checks if a cell exists at the pointer location, if not adds a cell with value of 0
             try:
                 cell[pointer]
             except IndexError:
                 cell.append(0)
 
         #if the pointer is 0 a new cell is added at the 0 position, otherwise pointer is decremented by 1
-        elif program[i]== '<':
+        elif program[i] == '<':
             if pointer == 0:
                 cell.insert(0, 0)
             else:
                 pointer -= 1
 
         #increments cell at pointer by 1
-        elif program[i]== '+':
+        elif program[i] == '+':
             cell[pointer] += 1
 
         #decrements cell at pointer by 1
-        elif program[i]== '-':
+        elif program[i] == '-':
             cell[pointer] -= 1
 
         #defines start of loop
-        elif program[i]== '[':
+        elif program[i] == '[':
             open += 1
 
         #defines end of loop
-        elif program[i]== ']':
+        elif program[i] == ']':
             open -= 1
-   
+
         #prints cell at pointer
-        elif program[i]== '.':
+        elif program[i] == '.':
             print(f"{cell[pointer]} ", end='')
 
         else:
             continue
-        
+
         i += 1
-   
+
     if open != 0:
         return('LoopError\nYour loops are fucked up')
 
