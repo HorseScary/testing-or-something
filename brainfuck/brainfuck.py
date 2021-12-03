@@ -1,20 +1,8 @@
 """
 An attempt at writing a brainfuck interprater
 """
-def match(thing):
-    i = 0
+from matchParen import match
 
-    paren = []
-    #tbh this should probably be a for loop
-    while i != len(thing):
-        if thing[i] == '[':
-            spot = i
-        elif thing[i] == ']':
-            paren.append([spot, i])
-        else:
-            pass
-        i +=1
-    return(f'{paren}')
 
 def fuck(pro):
     #create variables
