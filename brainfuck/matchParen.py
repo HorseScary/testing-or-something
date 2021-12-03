@@ -1,22 +1,32 @@
 def match(toMatch):
     i = 0
 
+    matching = []
     open = 0
     paren = []
 
     for i in range(len(toMatch)):
-        toMatch[i] = list(toMatch[i])
-        toMatch[i].insert(0, i)
-
+        a = (list(toMatch[i]))
+        matching.append(a)
+        matching[i].insert(0, i)
     #tbh this should probably be a for loop
     
-    while i != len(toMatch):
+    while i < len(matching):
+        if matching[i][1] == '[':
+            open = matching[i][0]
 
-
-        i +=1
+        elif matching[i][1] == ']':
+            paren.append([open, matching[i][0]])
+            del(matching[i])
+            i = 0
+            print('Close')
+        i += 1
     
-    return(f'Thing: {toMatch}\nParen: {paren}')
+    return(paren)
 
 
-a = ['[', '[', ']', '[', ']', ']']
+a = ['+', '+', '+', '+', '+', '+', '+', '+', '[', '>', '+', '+', '+', '+', '[', '>', '+', '+', '>', '+', '+', '+', '>', '+', '+', '+', '>', '+', '<', '<', '<', '<', '-', ']', '>', '+', '>', '+', '>', '-', '>', '>', '+', '[', '<', ']', '<', '-', ']', '>', '>', '.', '>', '-', '-', '-', '.', '+', '+', '+', '+', '+', '+', '+', '.', '.', '+', '+', '+', '.', '>', '>', '.', '<', '-', '.', '<', '.', '+', '+', '+', '.', '-', '-', '-', '-', '-', '-', '.', '-', '-', '-', '-', '-', '-', '-', '-', '.', '>', '>', '+', '.', '>', '+', '+', '.']
 print (match(a))
+
+#expected output: 
+# [0, 6] [2, 3] [4, 5]

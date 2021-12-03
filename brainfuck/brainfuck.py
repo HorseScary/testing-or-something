@@ -11,13 +11,11 @@ def fuck(pro):
     pointer = 0
     open = 0
 
-
     #converts string to list
     for i in range(len(pro)):
         program.append(pro[i])
-    
-    loop = match(program)
-
+    print(program)
+    print(match(program))
     #main loop
     i = 0
     while i < len(program):
