@@ -29,7 +29,7 @@ def rates(data):
             elif newData[i][binPos] == '0':
                 zero +=1
 
-    return(newData)x
+    return(newData)
 #110111001011
 # 3531
 #001000110111
