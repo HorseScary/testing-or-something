@@ -1,0 +1,13 @@
+body {
+    margin: 1vw;
+    padding: 1vw;
+    border: 1px solid black;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
