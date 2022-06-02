@@ -2,20 +2,37 @@
 An attempt at writing a brainfuck interprater
 """
 
-def fuck(pro):
-    #create variables
-    cell = [0]
+def matchLoops(program):
+    loops = {}
+    loopStart = []
+    for i in range(len(program)):
+        if program[i] == '[':
+            loopStart.append(i)
+        elif program[i] == ']':
+            loops[i] = loopStart.pop()
+
+    return(loops)
+
+def makeList(pro):
     program = []
+
+    for i in range(len(pro)):
+        program.append(pro[i])
+    return(program)
+
+def main(pro):
+    #create variables
+    program = makeList(pro)
+    loops = matchLoops(program)
+
+    cell = [0]
     pointer = 0
     open = 0
 
-    #converts string to list
-    for i in range(len(pro)):
-        program.append(pro[i])
-
-    #main loop
     i = 0
     while i < len(program):
+        print(f'cells: {cell}\nloop status: {open}')
+
         if program[i] == '>':
             pointer += 1
 
@@ -49,17 +66,20 @@ def fuck(pro):
                 print("LoopError\nA loop has an end, but no start!")
 
             elif cell[pointer] == 0:
+                open -= 1
                 pass
 
+            else: 
+                i = loops[i]
 
         i += 1
 
-        print(i)
-
     if open != 0:
-        return('LoopError\nYour loops are fucked up')
+        return('LoopError\nA loop has a start, but no end!')
 
     return(f'\n{cell}')
 
 
-print(fuck("+++[>++<-]"))
+print(main("+++[>++<-]"))
+
+# print(matchLoops("[[][]"))
