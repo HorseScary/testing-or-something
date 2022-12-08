@@ -1,27 +1,34 @@
 import random
 dirts = {
     "monosol": "grassland",
-    "Aridisol": "desert",
+    "aridisol": "desert",
     "alfisol": "forest",
     "oxisol": "rainforest",
     "histisol": "wetland",
     "gelisol": "tundra"
 }
 
-print(list(dirts.items())[random.randint(0, 5)])
+dirts = list(dirts.items())
 
 dirts_correct = 0
 dirts_wrong = 0
+print("Welcome to the HorseScary dirt quiz!\nmode 1: gives dirt location, asks for dirt type\nmode 0: gives dirt type, asks for location")
+mode = bool(int(input("mode: ")))
+
 while True:
-    dirt = list(dirts.items())[random.randint(0, 5)]
-    print(dirt[0])
+    if len(dirts) == 0:
+        break
+
+    dirt = dirts.pop(random.randint(0, len(dirts) - 1))
+    print(dirt[int(mode)])
+
     answer = input()
-    if answer == dirt[1]:
+    if answer == dirt[int(not mode)]:
         print("correct")
         dirts_correct += 1
     elif answer == "exit":
         break
     else:
-        print(f"incorrect. {dirt[1]}")
+        print(f"incorrect. {dirt[(not mode)]}")
         dirts_wrong += 1
 print(f"correct: {dirts_correct}\nincorrect: {dirts_wrong}")
