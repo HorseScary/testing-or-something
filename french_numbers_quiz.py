@@ -1,3 +1,6 @@
+import random
+
+
 def get_number(number):
     french_numbers = {
         1: "un",
@@ -9,7 +12,7 @@ def get_number(number):
         7: "sept",
         8: "huit",
         9: "neuf",
-        10: "diz",
+        10: "dix",
         11: "onze",
         12: "douze",
         13: "treize",
@@ -23,10 +26,31 @@ def get_number(number):
         60: "soixante"
     }
 
-    if number <= 10 or number % 10 == 0:
-        frenchNumber = french_numbers[number]
+    if number <= 16 or number % 10 == 0:
+        return (french_numbers[number])
     elif number % 10 == 1:
         return (f"{french_numbers[(int(number/10))*10]} et un")
     else:
         return (f"{french_numbers[int(number/10)*10]} {french_numbers[number%10]}")
-    return (frenchNumber)
+
+
+def quiz(numbers):
+    correct = 0
+    for i in range(numbers):
+        number = random.randint(1, 60)
+        if input(f"{number} ") == get_number(number):
+            correct += 1
+        else:
+            print(f"The correct answer is {get_number(number)}")
+    return (correct)
+
+
+if __name__ == "__main__":
+    numbers = int(input("How many numbers should I quiz you on? "))
+
+    correct = quiz(numbers)
+    print(f"You got {correct} numbers correct and {numbers - correct} wrong.")
+    if numbers == correct:
+        print("Cracked at da nums!!")
+    elif numbers / 2 < numbers-correct:
+        print("You fucking suck!")

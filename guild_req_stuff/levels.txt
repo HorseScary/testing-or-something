@@ -15,7 +15,7 @@
 15 StephandeBeer: 218.11
 16 Swiftzer: 205.41
 17 dropty: 204.42
-18 gemaruu: 201.18 :IRON_CHESTPLATE:
+18 gemaruu: 201.18
 19 grTnk: 199.66
 20 PattyMonster: 193.89
 21 FireFlame606: 193.76
