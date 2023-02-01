@@ -19,14 +19,21 @@ def get_number(number):
         14: "quatorze",
         15: "quinze",
         16: "seize",
-        20: "vigt",
+        20: "vingt",
         30: "trente",
         40: "quarante",
         50: "cinquante",
-        60: "soixante"
+        60: "soixante",
+        80: "quatre vignt",
+        100: "cent"
+
     }
 
-    if number <= 16 or number % 10 == 0:
+    if number >= 70 and number < 80:
+        return (f"soixante {get_number(number - 60)}")
+    elif number > 80 and number < 100:
+        return (f"quatre vingt {get_number(number - 80)}")
+    elif number <= 16 or number % 10 == 0:
         return (french_numbers[number])
     elif number % 10 == 1:
         return (f"{french_numbers[(int(number/10))*10]} et un")
@@ -37,7 +44,7 @@ def get_number(number):
 def quiz(numbers):
     correct = 0
     for i in range(numbers):
-        number = random.randint(1, 60)
+        number = random.randint(1, 100)
         if input(f"{number} ") == get_number(number):
             correct += 1
         else:
